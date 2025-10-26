@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator USD ⇄ USDC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f8fafc;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #00e0ff;
+    }
+    .container {
+      background: rgba(30, 41, 59, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(0, 224, 255, 0.4);
+    }
+    input {
+      padding: 10px;
+      width: 200px;
+      border: none;
+      border-radius: 6px;
+      margin: 8px 0;
+      text-align: center;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #00e0ff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #00bcd4;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffd700;
+    }
+    audio {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kalkulator USD ⇄ USDC</h1>
+  <div class="container">
+    <label for="usd">Jumlah USD:</label><br>
+    <input type="number" id="usd" placeholder="Contoh: 100" step="0.01"><br>
+
+    <label for="rate">Kurs (1 USD = ? USDC):</label><br>
+    <input type="number" id="rate" placeholder="1.00" value="1.00" step="0.0001"><br>
+
+    <button onclick="convertToUSDC()">USD ➜ USDC</button>
+    <button onclick="convertToUSD()">USDC ➜ USD</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <!-- Musik Latar -->
+  <audio autoplay="autoplay" loop="loop">
+    <source src="https://a.top4top.io/m_3586xbh2q1.mp4" type="audio/mpeg">
+    Browser kamu tidak mendukung pemutar musik 😢
+  </audio>
+
+  <script>
+    function convertToUSDC() {
+      const usd = parseFloat(document.getElementById("usd").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(usd) || isNaN(rate)) {
+        resultDiv.innerHTML = "Masukkan angka yang valid.";
+        return;
+      }
+
+      const usdc = usd * rate;
+      resultDiv.innerHTML = `${usd} USD = ${usdc.toFixed(4)} USDC (kurs ${rate})`;
+    }
+
+    function convertToUSD() {
+      const usdc = parseFloat(document.getElementById("usd").value);
+      const rate = parseFloat(document.getElementById("rate").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(usdc) || isNaN(rate) || rate === 0) {
+        resultDiv.innerHTML = "Masukkan angka yang valid.";
+        return;
+      }
+
+      const usd = usdc / rate;
+      resultDiv.innerHTML = `${usdc} USDC = ${usd.toFixed(4)} USD (kurs ${rate})`;
+    }
+  </script>
+</body>
+</html>
