@@ -7,8 +7,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f8fafc;
+      background-image: url("https://g.top4top.io/p_3586gmogs1.jpg");
+      color: transparent;
       text-align: center;
       padding: 50px;
     }
@@ -16,11 +16,12 @@
       color: #00e0ff;
     }
     .container {
-      background: rgba(30, 41, 59, 0.9);
+      background : transparent;
       padding: 30px;
       border-radius: 15px;
       display: inline-block;
       box-shadow: 0 0 20px rgba(0, 224, 255, 0.4);
+      place-content: transparent;
     }
     input {
       padding: 10px;
@@ -34,7 +35,7 @@
     button {
       padding: 10px 20px;
       margin-top: 10px;
-      background: #00e0ff;
+      background: transparent;
       border: none;
       border-radius: 6px;
       font-weight: bold;
@@ -42,7 +43,7 @@
       transition: 0.3s;
     }
     button:hover {
-      background: #00bcd4;
+      background: transparent;
     }
     .result {
       margin-top: 20px;
@@ -57,14 +58,14 @@
 <body>
   <h1>Kalkulator USD ⇄ USDC</h1>
   <div class="container">
-    <label for="usd">Jumlah USD:</label><br>
+    <label for="usd"><h1>Jumlah USD:</h1></label><br>
     <input type="number" id="usd" placeholder="Contoh: 100" step="0.01"><br>
 
-    <label for="rate">Kurs (1 USD = ? USDC):</label><br>
+    <label for="rate"><h1>Kurs (1 USD = ? USDC):</h1></label><br>
     <input type="number" id="rate" placeholder="1.00" value="1.00" step="0.0001"><br>
 
-    <button onclick="convertToUSDC()">USD ➜ USDC</button>
-    <button onclick="convertToUSD()">USDC ➜ USD</button>
+    <button onclick="convertToUSDC()"><h1>USD ➜ USDC</h1></button>
+    <button onclick="convertToUSD()"><h1>USDC ➜ USD</h1></button>
 
     <div class="result" id="result"></div>
   </div>
